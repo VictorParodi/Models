@@ -2,3 +2,7 @@
     height: 3.2em;
     width: 3.2em;
 }
+
+.user__container:hover {
+    background-color: rgba(20, 157, 216, 0.4);
+}

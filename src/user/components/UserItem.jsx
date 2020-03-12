@@ -7,7 +7,7 @@ const UserItem = (props) => {
     return (
         <Grid.Column>
             <Link to={`/${props.id}/places`}>
-                <Segment>
+                <Segment className="user__container">
                     <Feed size='large'>
                         <Feed.Event>
                             <Feed.Label image={props.image} />
