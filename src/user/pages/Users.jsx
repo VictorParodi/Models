@@ -1,6 +1,7 @@
 import React from 'react';
 import UsersList from './../components/UsersList';
-import { Container, Grid } from 'semantic-ui-react'
+import { Container, Grid } from 'semantic-ui-react';
+import './Users.css';
 
 const Users = () => {
     const USERS = [
@@ -29,7 +30,7 @@ const Users = () => {
             <Grid>
                 <Grid.Row columns={1}>
                     <Grid.Column>
-                        <h1>Users List</h1>
+                        <h1 className="page-title">Users list</h1>
                     </Grid.Column>
                 </Grid.Row>
                 <Grid.Row columns={3}>
