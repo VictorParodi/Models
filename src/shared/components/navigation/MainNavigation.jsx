@@ -1,37 +1,35 @@
-import React, { useState } from 'react';
-import { Menu } from 'semantic-ui-react'
+import React, {useState} from 'react';
+import { Grid, Button } from 'semantic-ui-react';
+import MainHeader from './MainHeader';
+import NavLinks from './NavLinks';
+import SideBar from './../../UIElements/SideBar';
+import './MainNavigation.css';
 
 const MainNavigation = () => {
-    const [activeItem, setActiveItem] = useState('Home');
+    const [isModalOpened, setIsModalOpened] = useState(false);
 
-    const handleActiveItem = (event, {name}) => {
-        setActiveItem(name);
+    const modalHandler = () => {
+        setIsModalOpened(!isModalOpened);
     }
 
     return (
-        <Menu text>
-            <Menu.Item header>
-                PlaceBook
-            </Menu.Item>
+        <MainHeader>
+            <Grid className="main__navigation">
+                <Grid.Row>
+                    <Grid.Column width={3}>
+                        <h3>LOGO</h3>
+                    </Grid.Column>
 
-            <Menu.Item
-                name="Home"
-                active={activeItem === 'Home'}
-                onClick={handleActiveItem}
-            />
+                    <NavLinks />
 
-            <Menu.Item
-                name="Places"
-                active={activeItem === 'Places'}
-                onClick={handleActiveItem}
-            />
+                    <Grid.Column width={1}>
+                        <Button onClick={modalHandler}>MODAL</Button>
+                    </Grid.Column>
 
-            <Menu.Item
-                name="Account"
-                active={activeItem === 'Account'}
-                onClick={handleActiveItem}
-            />
-        </Menu>
+                    <SideBar isOpen={isModalOpened} closeModal={modalHandler}/>
+                </Grid.Row>
+            </Grid>
+        </MainHeader>
     );
 }
 
