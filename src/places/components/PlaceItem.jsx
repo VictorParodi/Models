@@ -24,17 +24,17 @@ const PlaceItem = (props) => {
                     <Grid>
                         <Grid.Row columns={3}>
                             <Grid.Column>
-                                <span>
+                                <a onClick={props.handleModal}>
                                     <Icon name="eye"/>
                                     View
-                                </span>
+                                </a>
                             </Grid.Column>
 
                             <Grid.Column>
-                                <span>
+                                <a href={`/places/${props.id}`}>
                                     <Icon name="edit"/>
                                     Edit
-                                </span>
+                                </a>
                             </Grid.Column>
 
                             <Grid.Column>

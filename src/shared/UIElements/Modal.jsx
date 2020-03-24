@@ -2,14 +2,13 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Button, Header, Icon, Modal } from 'semantic-ui-react';
 
-const SideBar = (props) => {
-    const sidebar = (
+const ModalMap = (props) => {
+    const ModalComponent = (
         <Modal basic size='small' open={props.isOpen}>
             <Header icon='archive' content='Archive Old Messages' />
             <Modal.Content>
                 <p>
-                    Your inbox is getting full, would you like us to enable automatic
-                    archiving of old messages?
+                    This is the space for the map
                 </p>
             </Modal.Content>
             <Modal.Actions>
@@ -21,9 +20,9 @@ const SideBar = (props) => {
     );
 
     return ReactDOM.createPortal(
-        sidebar,
+        ModalComponent,
         document.querySelector('#sidebar')
     );
 }
 
-export default SideBar;
+export default ModalMap;
