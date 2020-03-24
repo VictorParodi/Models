@@ -2,7 +2,6 @@ import React from 'react';
 import PlaceItem from './PlaceItem';
 
 const PlaceList = (props) => {
-    console.log(props);
     return (
         props.items.length
         ? props.items.map(place => {

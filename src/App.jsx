@@ -14,7 +14,7 @@ const App = () => {
                 <Switch>
                     <Route path='/' exact component={Users} />
                     <Route path='/places/new' exact component={NewPlace} />
-                    <Route path='/:userid/places' component={UserPlaces} exact />
+                    <Route path='/:userId/places' component={UserPlaces} exact />
                     <Redirect to='/' />
                 </Switch>
             </Router>
