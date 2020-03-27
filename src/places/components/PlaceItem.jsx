@@ -24,7 +24,7 @@ const PlaceItem = (props) => {
                     <Grid>
                         <Grid.Row columns={3}>
                             <Grid.Column>
-                                <a onClick={props.handleModal}>
+                                <a onClick={() => props.handleModal(props.coordinates)}>
                                     <Icon name="eye"/>
                                     View
                                 </a>

@@ -5,11 +5,10 @@ import { Button, Header, Icon, Modal } from 'semantic-ui-react';
 const ModalMap = (props) => {
     const ModalComponent = (
         <Modal basic size='small' open={props.isOpen}>
-            <Header icon='archive' content='Archive Old Messages' />
+            <Header icon='marker' content='Google Maps' />
             <Modal.Content>
-                <p>
-                    This is the space for the map
-                </p>
+                <p>Latitude: {props.coordinates.lat}</p>
+                <p>Longitude: {props.coordinates.lng}</p>
             </Modal.Content>
             <Modal.Actions>
                 <Button basic color='red' inverted onClick={props.closeModal}>

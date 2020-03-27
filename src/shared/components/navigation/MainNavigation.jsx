@@ -1,17 +1,10 @@
-import React, {useState} from 'react';
-import { Grid, Button } from 'semantic-ui-react';
+import React from 'react';
+import { Grid } from 'semantic-ui-react';
 import MainHeader from './MainHeader';
 import NavLinks from './NavLinks';
-import SideBar from './../../UIElements/SideBar';
 import './MainNavigation.css';
 
 const MainNavigation = () => {
-    const [isModalOpened, setIsModalOpened] = useState(false);
-
-    const modalHandler = () => {
-        setIsModalOpened(!isModalOpened);
-    }
-
     return (
         <MainHeader>
             <Grid className="main__navigation">
@@ -21,12 +14,6 @@ const MainNavigation = () => {
                     </Grid.Column>
 
                     <NavLinks />
-
-                    <Grid.Column width={1}>
-                        <Button onClick={modalHandler}>MODAL</Button>
-                    </Grid.Column>
-
-                    <SideBar isOpen={isModalOpened} closeModal={modalHandler}/>
                 </Grid.Row>
             </Grid>
         </MainHeader>
