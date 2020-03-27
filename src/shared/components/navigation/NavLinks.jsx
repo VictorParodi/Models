@@ -12,7 +12,7 @@ const NavLinks = () => {
         },
         {
             name: 'MY PLACES',
-            path: '/u1/places',
+            path: '/1/places',
             isExact: false
         },
         {
