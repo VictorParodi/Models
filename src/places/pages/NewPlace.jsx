@@ -1,5 +1,5 @@
 import React, {useState, useRef} from 'react';
-import { Grid, Form, Button } from 'semantic-ui-react';
+import { Grid, Form} from 'semantic-ui-react';
 
 const NewPlace = () => {
     const titleRef = useRef('');
@@ -34,7 +34,7 @@ const NewPlace = () => {
                         </Form.Field>
 
                         <Form.Field>
-                            <label>Descripyion</label>
+                            <label>Description</label>
                             <input type="text" name="description" value={description} ref={descriptionRef} onChange={handleDescription}/>
                         </Form.Field>
 
