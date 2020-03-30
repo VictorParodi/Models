@@ -1,43 +1,40 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Grid } from 'semantic-ui-react'
 import { NavLink } from 'react-router-dom';
+import AuthContext from './../../context/auth-context';
 import './NavLinks.css';
 
 const NavLinks = () => {
-    const LINKS = [
-        {
-            name: 'ALL USERS',
-            path: '/',
-            isExact: true
-        },
-        {
-            name: 'MY PLACES',
-            path: '/1/places',
-            isExact: false
-        },
-        {
-            name: 'ADD PLACE',
-            path: '/places/new',
-            isExact: false
-        },
-        {
-            name: 'AUTHENTICATE',
-            path: '/auth',
-            isExact: false
-        },
-    ];
+    const auth = useContext(AuthContext);
 
-    const renderLinks = () => {
-        return LINKS.map((link, index) => {
-            return (
-                <Grid.Column key={index} width={3} className="centered-text">
-                    <NavLink to={link.path} exact={link.isExact}>{link.name}</NavLink>
+    return (
+        <React.Fragment>
+            <Grid.Column width={3} className="centered-text">
+                <NavLink to='/' exact={true}>{'ALL USERS'}</NavLink>
+            </Grid.Column>
+
+            {
+                auth.isLoggedIn &&
+                <Grid.Column width={3} className="centered-text">
+                    <NavLink to='/1/places'>{'MY PLACES'}</NavLink>
                 </Grid.Column>
-            );
-        });
-    }
+            }
 
-    return renderLinks();
+            {
+                auth.isLoggedIn &&
+                <Grid.Column width={3} className="centered-text">
+                    <NavLink to='/places/new'>{'ADD PLACE'}</NavLink>
+                </Grid.Column>
+            }
+
+            {
+                !auth.isLoggedIn &&
+                <Grid.Column width={3} className="centered-text">
+                    <NavLink to='/auth'>{'AUTHENTICATE'}</NavLink>
+                </Grid.Column>
+            }
+        </React.Fragment>
+    );
 }
 
 export default NavLinks;

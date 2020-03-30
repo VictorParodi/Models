@@ -1,9 +1,10 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState, useContext } from 'react';
+import AuthContext from './../../shared/context/auth-context';
 import { Grid, Form, Button} from 'semantic-ui-react';
 
 const AuthPage = () => {
+    const auth = useContext(AuthContext);
     const [loginState, setLoginState] = useState(true);
-
     const usernameRef = useRef('');
     const emailRef = useRef('');
     const passwordRef = useRef('');
@@ -39,7 +40,7 @@ const AuthPage = () => {
             <Grid>
                 <Grid.Row columns={2}>
                     <Grid.Column>
-                        <input className="ui button" type="submit" value="LOGIN"/>
+                        <input className="ui button" type="submit" value="LOGIN" onClick={auth.login}/>
                     </Grid.Column>
 
                     <Grid.Column>
