@@ -38,10 +38,10 @@ const PlaceItem = (props) => {
                             </Grid.Column>
 
                             <Grid.Column>
-                                <span>
+                                <a onClick={() => props.handleDelModal(props.id, props.title)}>
                                     <Icon name="trash"/>
                                     Delete
-                                </span>
+                                </a>
                             </Grid.Column>
                         </Grid.Row>
                     </Grid>

@@ -1,14 +1,22 @@
 import React, { useState }from 'react';
 import PlaceItem from './PlaceItem';
 import ModalMap from './../../shared/UIElements/Modal';
+import DeleteModal from './../../shared/UIElements/DeleteModal';
 
 const PlaceList = (props) => {
     const [modalState, setModalState] = useState(false);
     const [location, setLocation] = useState({});
+    const [delModalState, setDelModalState] = useState(false);
+    const [placeTitle, setPlaceTitle] = useState('');
 
     const handleModalState = (location) => {
         setModalState(!modalState);
         setLocation(location);
+    }
+
+    const handleDelModalState = (placeId, placeLabel) => {
+        setDelModalState(!delModalState);
+        setPlaceTitle(placeLabel);
     }
 
     return (
@@ -27,6 +35,7 @@ const PlaceList = (props) => {
                             creatorId={place.creator}
                             coordinates={place.location}
                             handleModal={handleModalState}
+                            handleDelModal={handleDelModalState}
                         />
                     );
                   })
@@ -35,6 +44,7 @@ const PlaceList = (props) => {
                   </div>
             }
             <ModalMap isOpen={modalState} closeModal={handleModalState} coordinates={location} />
+            <DeleteModal isOpen={delModalState} closeModal={handleDelModalState} placeTitle={placeTitle}/>
         </React.Fragment>
     );
 }
